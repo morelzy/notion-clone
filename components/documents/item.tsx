@@ -36,7 +36,7 @@ interface ItemsProps {
   icon: LucideIcon
   label: string
   onExpand?: () => void
-  onClick: () => void
+  onClick?: () => void
 }
 
 export const Item = ({
