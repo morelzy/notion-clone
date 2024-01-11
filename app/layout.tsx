@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import { Toaster } from 'sonner'
 
 import { ConvexClientProvider } from '@/components/providers/convex-provider'
+import { ModalProvider } from '@/components/providers/modal-provider'
 
 import './globals.css'
 
@@ -38,6 +39,7 @@ export default function RootLayout({
       <html lang="en">
         <body className={inter.className}>
           <Toaster position="bottom-center" />
+          <ModalProvider />
           {children}
         </body>
       </html>
