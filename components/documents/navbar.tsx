@@ -8,6 +8,8 @@ import { MenuIcon } from 'lucide-react'
 
 import { api } from '@/convex/_generated/api'
 import { Title } from '@/components/documents/title'
+import { Banner } from '@/components/documents/banner'
+import { Menu } from '@/components/documents/menu'
 
 interface NavbarProps {
   isCollapsed: boolean
@@ -45,8 +47,14 @@ export const Navbar = ({ isCollapsed, onResetWidth }: NavbarProps) => {
         )}
         <div className="flex items-center justify-between w-full">
           <Title initialData={document} />
+          {!document.isArchived && (
+            <div className="flex items-center gap-x-2">
+              <Menu documentId={document._id} />
+            </div>
+          )}
         </div>
       </nav>
+      {document.isArchived && <Banner documentId={document._id} />}
     </>
   )
 }
