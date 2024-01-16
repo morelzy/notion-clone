@@ -5,6 +5,7 @@ import { Toaster } from 'sonner'
 
 import { ConvexClientProvider } from '@/components/providers/convex-provider'
 import { ModalProvider } from '@/components/providers/modal-provider'
+import { EdgeStoreProvider } from '@/lib/edgestore'
 
 import './globals.css'
 
@@ -35,14 +36,16 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <ConvexClientProvider>
-      <html lang="en">
-        <body className={inter.className}>
-          <Toaster position="bottom-center" />
-          <ModalProvider />
-          {children}
-        </body>
-      </html>
-    </ConvexClientProvider>
+    <html lang="en">
+      <body className={inter.className}>
+        <ConvexClientProvider>
+          <EdgeStoreProvider>
+            <Toaster position="bottom-center" />
+            <ModalProvider />
+            {children}
+          </EdgeStoreProvider>
+        </ConvexClientProvider>
+      </body>
+    </html>
   )
 }
