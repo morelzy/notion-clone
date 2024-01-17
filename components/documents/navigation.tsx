@@ -8,7 +8,6 @@ import {
   Plus,
   PlusCircle,
   Search,
-  Settings,
   Trash,
 } from 'lucide-react'
 import { useMediaQuery } from 'usehooks-ts'
@@ -28,11 +27,9 @@ import {
 } from '@/components/ui/popover'
 import { TrashBox } from '@/components/documents/trash-box'
 import { useSearch } from '@/hooks/use-search'
-import { useSettings } from '@/hooks/use-settings'
 
 export const Navigation = () => {
   const search = useSearch()
-  const settings = useSettings()
   const pathname = usePathname()
   const router = useRouter()
   const params = useParams()
@@ -152,7 +149,6 @@ export const Navigation = () => {
         <div>
           <UserItem />
           <Item label="Search" icon={Search} isSearch onClick={search.onOpen} />
-          <Item label="Settings" icon={Settings} onClick={settings.onOpen} />
           <Item onClick={handleCreate} label="New page" icon={PlusCircle} />
         </div>
         <div className="mt-4">

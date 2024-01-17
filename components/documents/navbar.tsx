@@ -10,6 +10,7 @@ import { api } from '@/convex/_generated/api'
 import { Title } from '@/components/documents/title'
 import { Banner } from '@/components/documents/banner'
 import { Menu } from '@/components/documents/menu'
+import { Publish } from '@/components/documents/publish'
 
 interface NavbarProps {
   isCollapsed: boolean
@@ -49,6 +50,7 @@ export const Navbar = ({ isCollapsed, onResetWidth }: NavbarProps) => {
           <Title initialData={document} />
           {!document.isArchived && (
             <div className="flex items-center gap-x-2">
+              <Publish initialData={document} />
               <Menu documentId={document._id} />
             </div>
           )}
